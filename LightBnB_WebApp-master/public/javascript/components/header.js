@@ -18,7 +18,7 @@ $(() => {
           <li class="sign-up_button">Sign Up</li>
         </ul>
       </nav>
-      `
+      `;
     } else {
       userLinks = `
       <nav id="page-header__user-links" class="page-header__user-links">
@@ -32,7 +32,7 @@ $(() => {
           <li class="logout_button">Log Out</li>
         </ul>
       </nav>
-      `
+      `;
     }
 
     $pageHeader.append(userLinks);
@@ -41,15 +41,14 @@ $(() => {
   window.header.update = updateHeader;
 
   getMyDetails()
-    .then(function( json ) {
-    updateHeader(json.user);
-  });
+    .then(function(json) {
+      updateHeader(json.user);
+    });
 
   $("header").on("click", '.my_reservations_button', function() {
     propertyListings.clearListings();
     getAllReservations()
       .then(function(json) {
-        console.log(json)
         propertyListings.addProperties(json.reservations, true);
         views_manager.show('listings');
       })
@@ -61,7 +60,7 @@ $(() => {
       .then(function(json) {
         propertyListings.addProperties(json.properties);
         views_manager.show('listings');
-    });
+      });
   });
 
   $("header").on("click", '.home', function() {
@@ -70,7 +69,7 @@ $(() => {
       .then(function(json) {
         propertyListings.addProperties(json.properties);
         views_manager.show('listings');
-    });
+      });
   });
 
   $('header').on('click', '.search_button', function() {
